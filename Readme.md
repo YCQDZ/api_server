@@ -6,3 +6,5 @@ git checkout -b loginAndRegister
 git checkout -b userAvatar 
 ### 文章类别
 git checkout -b articleCate
+### 文章
+git checkout -b article   

@@ -12,6 +12,10 @@ app.use(cors())
 app.use(express.urlencoded({extended: false}))
 
 
+// 托管静态资源文件
+app.use('/uploads', express.static('/uploads'))
+
+
 // 一定要在路由之前，封装res.cc函数
 app.use((req, res, next) =>{
     // status = 0 为成功； status = 1 为失败； 默认将 status 的值设置为 1，方便处理失败的情况
@@ -44,6 +48,10 @@ app.use('/my', userinfoRouter)
 // 导入并使用文章分类路由模块
 const artCateRouter = require('./router/artcate')
 app.use('/my/article', artCateRouter)
+// 导入并使用文章路由模块
+const articleRouter = require('./router/article')
+// 为文章的路由挂载统一的访问前缀 /my/article
+app.use('/my/article', articleRouter)
 
 
 

@@ -71,7 +71,7 @@ exports.login = (req, res) => {
       const compareResult = bcrypt.compareSync(userinfo.password, results[0].password)
 
       // 如果对比的结果等于 false, 则证明用户输入的密码错误
-      if (!compareResult) {å
+      if (!compareResult) {
         return res.cc('登录失败!')
       }
       // 登录成功，在服务端生成 Token 字符串

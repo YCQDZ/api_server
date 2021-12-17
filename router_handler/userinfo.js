@@ -47,7 +47,7 @@ exports.updateUserInfo = (req, res) => {
 // 重置密码的处理函数
 exports.updatePassword = (req, res) => {
     // 定义根据 id 查询用户数据的 SQL 语句
-    const sql = `select * from ev_users where id=?`
+    const sql = 'select * from ev_users where id = ? '
 
     // 执行 SQL 语句查询用户是否存在
     db.query(sql, req.user.id, (err, results) => {
@@ -62,7 +62,7 @@ exports.updatePassword = (req, res) => {
     if (!compareResult) return res.cc('原密码错误！')
         
     // 定义更新用户密码的 SQL 语句
-    const sql = `update ev_users set password=? where id=?`
+    const sql = 'update ev_users set password = ? where id= ? '
 
     // 对新密码进行 bcrypt 加密处理
     const newPwd = bcrypt.hashSync(req.body.newPwd, 10)
